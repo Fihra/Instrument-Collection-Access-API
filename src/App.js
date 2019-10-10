@@ -4,6 +4,7 @@ import InstrumentContainer from './containers/instrumentContainer';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Sidebar from './components/Sidebar';
 
 class App extends React.Component {
   render(){
@@ -11,10 +12,10 @@ class App extends React.Component {
     return (
       <div className="App">
         <Navbar/>
-        <h1>Instruments</h1>
+        <Sidebar/>
         
         <InstrumentContainer/>
-        <Footer/>
+        {/* <Footer/> */}
       </div>
     );
   }
