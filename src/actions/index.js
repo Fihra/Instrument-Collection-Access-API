@@ -12,7 +12,6 @@ export function loadInstruments(){
 }
 
 export function getInstruments(instruments){
-    console.log(instruments)
     return {
         type: "FETCH_INSTRUMENTS",
         instruments: instruments

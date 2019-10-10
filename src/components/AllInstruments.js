@@ -1,8 +1,6 @@
 import React from 'react';
 import InstrumentCard from './InstrumentCard';
 
-const API = 'http://localhost:52371/api/instruments/all';
-
 class AllInstruments extends React.Component {
 
     showInstruments = (allInstruments) => {
@@ -12,7 +10,6 @@ class AllInstruments extends React.Component {
     }
     render(){
         const { instruments} = this.props;
-        //console.log(instruments);
         return (
             <div>
                 <h2>All of the Instruments</h2>

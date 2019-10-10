@@ -17,15 +17,9 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class InstrumentContainer extends React.Component{
-    // componentDidMount() {
-    //     this.props.fetchInstruments();
-    // }
-
     render(){
         return(
-            <div>
-                <AllInstruments instruments={this.props.instruments}/>
-            </div>
+            <AllInstruments instruments={this.props.instruments} />
         )
     }
 }
