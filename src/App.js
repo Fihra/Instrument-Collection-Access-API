@@ -2,6 +2,7 @@ import React from 'react';
 import InstrumentContainer from './containers/instrumentContainer';
 import NewInstrumentForm from './components/NewInstrumentForm';
 import About from './components/About';
+import InstrumentCard from './components/InstrumentCard';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -18,9 +19,10 @@ class App extends React.Component {
         <BrowserRouter>
         <Navbar/>
         <Sidebar/>
-          <Route exact path="/" component={InstrumentContainer}/>
-          <Route path="/about" component={About}/>
-          <Route path="/newinstrument" component={NewInstrumentForm}/>
+          <Route exact path="/" render={(routerProps) => <InstrumentContainer {...routerProps}/>}/>
+          <Route path="/about" render={(routerProps) => <About {...routerProps}/>}/>
+          <Route path="/newinstrument" render={(routerProps) => <NewInstrumentForm {...routerProps}/>}/>
+          <Route path="/instruments/:id" render={(routerProps) => <InstrumentCard {...routerProps}/>}/>
           {/* <InstrumentContainer/> */}
         </BrowserRouter>
         

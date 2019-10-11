@@ -1,5 +1,6 @@
 import React from 'react';
 import InstrumentCard from './InstrumentCard';
+import { Link } from 'react-router-dom';
 
 class AllInstruments extends React.Component {
 
@@ -11,7 +12,7 @@ class AllInstruments extends React.Component {
 
     showInstruments = (allInstruments) => {
         return allInstruments.map((instrument, i) => {
-            return <li><a href="#">{instrument.Name}</a></li>
+            return <li><Link to={"/instruments/" + instrument.Id}>{instrument.Name}</Link></li>
         })
         
     }

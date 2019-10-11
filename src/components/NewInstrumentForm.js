@@ -13,7 +13,6 @@ class NewInstrumentForm extends React.Component {
     }
 
     handleChange = (e) => {
-        console.log(e.target.value);
         this.setState({
             [e.target.name]: e.target.value 
         })
@@ -35,13 +34,7 @@ class NewInstrumentForm extends React.Component {
          })
     }
 
-    // return(dispatch) => {
-    //     axios.get(API)
-    //     .then(resp => { 
-    //         dispatch(getInstruments(resp.data));
-    //     })
-    // }
-
+    //TODO: VALIDATIONS
     render(){
         return(
             <div className="main-container">

@@ -2,6 +2,7 @@ import React from 'react';
 
 class About extends React.Component {
     render(){
+        //console.log(this.props.routerProps);
         return(
             <div>
                 <h3>About</h3>
