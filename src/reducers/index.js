@@ -1,5 +1,6 @@
 const initialState = {
-    instruments: []
+    instruments: [],
+    oneInstrument: {}
 }
 
 const mainReducer = (state = initialState, action) => {
@@ -8,6 +9,10 @@ const mainReducer = (state = initialState, action) => {
             return {
                 ...state,
                 instruments: action.instruments
+            }
+        case "SELECT_INSTRUMENT":
+            return {
+                oneInstrument: action.oneInstrument
             }
         default:
             return state;
