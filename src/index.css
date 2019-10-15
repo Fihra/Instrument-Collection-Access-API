@@ -74,3 +74,13 @@ code {
 .footer {
   background: blue;
 }
+
+/*Instrument Card*/
+.instrument-card h3 {
+  color: white;
+}
+
+/*TODO*/
+.name-container {
+  
+}

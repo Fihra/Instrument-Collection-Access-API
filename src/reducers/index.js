@@ -5,7 +5,7 @@
 
 const initialState = {
     instruments: [],
-    oneInstrument: {}
+    stage: []
 }
 
 const mainReducer = (state = initialState, action) => {

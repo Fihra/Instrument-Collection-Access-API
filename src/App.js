@@ -4,6 +4,7 @@ import NewInstrumentForm from './components/NewInstrumentForm';
 import About from './components/About';
 import InstrumentCard from './components/InstrumentCard';
 import AllInstruments from './components/AllInstruments';
+import Staging from './components/Staging';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -40,6 +41,7 @@ class App extends React.Component {
           <Route path="/about" render={(routerProps) => <About {...routerProps}/>}/>
           <Route path="/newinstrument" render={(routerProps) => <NewInstrumentForm {...routerProps}/>}/>
           <Route path="/instruments/:name" render={(routerProps) => <InstrumentCard {...routerProps} instruments={this.props.instruments}/>}/>
+          <Route path="/staging" render={(routerProps) => <Staging {...routerProps}/>}/>
         </BrowserRouter>
         
         {/* <Footer/> */}

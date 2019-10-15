@@ -15,10 +15,16 @@ const InstrumentCard = (props) => {
     const {Name, Origin, Year } = filtered[0];
     return(
     
-        <div>
-            <h3>Instrument: {Name}</h3>
+        <div className="instrument-card">
+            <div className="name-container">
+                <h3>Instrument: {Name}</h3>
+            </div>
+            
             <p>Origin: {Origin}</p>
             <p>Year: {Year}</p>
+            <button>Add to Staging List</button>
+            <button>Edit</button>
+            <button>Delete</button>
         </div>
     )
 }

@@ -9,6 +9,7 @@ class NavBar extends React.Component {
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/about">About</Link></li>
                     <li><Link to="/newinstrument">Suggest an Instrument</Link></li>
+                    <li><Link to="/staging">Staging</Link></li>
                 </ul>
                
             </div>
