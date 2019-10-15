@@ -23,12 +23,13 @@ export function getInstruments(instruments){
 //Fetch API for One Instrument
 export function showInstrument(id){
     console.log(id);
-    return(dispatch) => {
+    return((dispatch) => {
         axios.get(`${API}/${id}`)
         .then(resp => {
             dispatch(oneInstrument(resp.data));
         })
-    }
+    })
+
 }
 
 export function oneInstrument(instrument){

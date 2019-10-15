@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { loadInstruments, showInstrument } from '../actions';
 
 const mapStateToProps = (state) => {
+    //console.log(state.instruments)
     return {
         instruments: state.instruments,
         oneInstrument: state.oneInstrument

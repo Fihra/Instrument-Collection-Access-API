@@ -16,10 +16,17 @@ class AllInstruments extends React.Component {
         this.props.getInstrument(instrument.Id);
     }
 
+    oneInstrument = (instrument) => {
+        console.log(instrument.Id);
+        return <InstrumentCard instrument={instrument}/>
+    }
+
     showInstruments = (allInstruments) => {
         return allInstruments.map((instrument, i) => {
-            return <li><Link to={"/instruments/" + instrument.Name} onClick={() => this.saveInstrument(instrument)}>{instrument.Name}</Link></li>
+            // return <li><Link to={"/instruments/" + instrument.Name} onClick={() => this.saveInstrument(instrument)}>{instrument.Name}</Link></li>
+            return <li key={instrument.Name}><Link to={`/instruments/${instrument.Name}`}>{instrument.Name}</Link></li>
         })
+
         
     }
 

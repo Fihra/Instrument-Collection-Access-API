@@ -3,6 +3,7 @@ import InstrumentContainer from './containers/instrumentContainer';
 import NewInstrumentForm from './components/NewInstrumentForm';
 import About from './components/About';
 import InstrumentCard from './components/InstrumentCard';
+import AllInstruments from './components/AllInstruments';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -14,7 +15,8 @@ import { showInstrument } from './actions';
 
 const mapStateToProps = (state) => {
   return {
-      oneInstrument: state.oneInstrument
+    instruments: state.instruments,
+    oneInstrument: state.oneInstrument
   }
 }
 
@@ -24,21 +26,20 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-
 class App extends React.Component {
+
   render(){
-    console.log(this.state);
     return (  
       <div className="App">
         
         <BrowserRouter>
         <Navbar/>
         <Sidebar/>
-          <Route exact path="/" render={(routerProps) => <InstrumentContainer {...routerProps}/>}/>
+          <Route exact path="/" render={(routerProps) => <AllInstruments {...routerProps} instruments={this.props.instruments}/>}/>
+          {/* <Route exact path="/" render={(routerProps) => <InstrumentContainer {...routerProps}/>}/> */}
           <Route path="/about" render={(routerProps) => <About {...routerProps}/>}/>
           <Route path="/newinstrument" render={(routerProps) => <NewInstrumentForm {...routerProps}/>}/>
-          <Route path="/instruments/:name" render={(routerProps) => <InstrumentCard {...routerProps} />}/>
-          {/* <InstrumentContainer/> */}
+          <Route path="/instruments/:name" render={(routerProps) => <InstrumentCard {...routerProps} instruments={this.props.instruments}/>}/>
         </BrowserRouter>
         
         {/* <Footer/> */}
