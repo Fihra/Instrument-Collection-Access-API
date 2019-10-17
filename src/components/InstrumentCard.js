@@ -8,6 +8,14 @@ const InstrumentCard = (props) => {
     });
 
     const { Id, Name, Origin, Year } = filtered[0];
+
+
+    const handleClick = (id) => {
+        console.log(id);
+        props.stageInstrument(id);
+        return <span>Instrument Added</span>
+    }
+
     return(
     
         <div className="instrument-card">
@@ -17,7 +25,8 @@ const InstrumentCard = (props) => {
             
             <p>Origin: {Origin}</p>
             <p>Year: {Year}</p>
-            <button onClick={()=>props.stageInstrument(Id)}>Add to Staging List</button>
+            <button onClick={()=> handleClick(Id)}>Add to Staging List</button>
+            {/* <button onClick={() => handleClick(Id)}>Add to Staging List</button> */}
             <button>Edit</button>
             <button>Delete</button>
         </div>
