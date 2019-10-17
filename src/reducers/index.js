@@ -9,17 +9,17 @@ const initialState = {
 }
 
 const mainReducer = (state = initialState, action) => {
-    console.log(action.instruments);
+    console.log(action.stageInstrument);
     switch(action.type){
         case "FETCH_INSTRUMENTS":
             return {
                 ...state,
                     instruments: action.instruments
             }
-        case "SELECT_INSTRUMENT":
+        case "ADD_TO_STAGE":
             return {
                 ...state,
-                oneInstrument: action.oneInstrument
+                stage: [...state.stage, action.stageInstrument]
             }
         default:
             return state;

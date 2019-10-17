@@ -12,18 +12,19 @@ import Sidebar from './components/Sidebar';
 
 import { Route, BrowserRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { showInstrument } from './actions';
+import { showInstrument, stageInstrument } from './actions';
 
 const mapStateToProps = (state) => {
   return {
     instruments: state.instruments,
-    oneInstrument: state.oneInstrument
+    stage: state.stage
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-      getInstrument: (id) => dispatch(showInstrument(id))
+      getInstrument: (id) => dispatch(showInstrument(id)),
+      stageInstrument: (id) => dispatch(stageInstrument(id))
   }
 }
 
@@ -40,7 +41,7 @@ class App extends React.Component {
           {/* <Route exact path="/" render={(routerProps) => <InstrumentContainer {...routerProps}/>}/> */}
           <Route path="/about" render={(routerProps) => <About {...routerProps}/>}/>
           <Route path="/newinstrument" render={(routerProps) => <NewInstrumentForm {...routerProps}/>}/>
-          <Route path="/instruments/:name" render={(routerProps) => <InstrumentCard {...routerProps} instruments={this.props.instruments}/>}/>
+          <Route path="/instruments/:name" render={(routerProps) => <InstrumentCard {...routerProps} instruments={this.props.instruments} stageInstrument={this.props.stageInstrument}/>}/>
           <Route path="/staging" render={(routerProps) => <Staging {...routerProps}/>}/>
         </BrowserRouter>
         

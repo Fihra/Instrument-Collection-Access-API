@@ -26,15 +26,16 @@ export function showInstrument(id){
     return((dispatch) => {
         axios.get(`${API}/${id}`)
         .then(resp => {
-            dispatch(oneInstrument(resp.data));
+            dispatch(stageInstrument(resp.data));
         })
     })
 
 }
 
-export function oneInstrument(instrument){
+export function stageInstrument(instrument){
+    console.log(instrument);
     return {
-        type: "SELECT_INSTRUMENT",
-        oneInstrument: instrument
+        type: "ADD_TO_STAGE",
+        stageInstrument: instrument
     }
 }
