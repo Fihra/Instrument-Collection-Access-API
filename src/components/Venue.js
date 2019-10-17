@@ -14,14 +14,9 @@ class Venue extends React.Component {
     }
 
     render(){
-        let name = new Konva.Text({
-            x: 100,
-            y: 100,
-            text: 'Hello'
-        });
         return(
             <div>
-            <Stage width={900} height={700}>
+            <Stage width={900} height={700} drawBorder={true}>
                 <Layer>
                                  
                     <Rect x={0} y={550} width={900} height={500} fill={this.state.color}
