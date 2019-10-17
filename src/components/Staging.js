@@ -7,7 +7,7 @@ class Staging extends React.Component {
         return(
             <div className="main-container">
                 <h3>Staging</h3>
-                <StageContainer/>
+                <StageContainer stage={this.props.stage} instruments={this.props.instruments}/>
                 <Venue/>
             </div>
         )

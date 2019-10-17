@@ -9,7 +9,6 @@ const initialState = {
 }
 
 const mainReducer = (state = initialState, action) => {
-    console.log(action.stageInstrument);
     switch(action.type){
         case "FETCH_INSTRUMENTS":
             return {

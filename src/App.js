@@ -42,7 +42,7 @@ class App extends React.Component {
           <Route path="/about" render={(routerProps) => <About {...routerProps}/>}/>
           <Route path="/newinstrument" render={(routerProps) => <NewInstrumentForm {...routerProps}/>}/>
           <Route path="/instruments/:name" render={(routerProps) => <InstrumentCard {...routerProps} instruments={this.props.instruments} stageInstrument={this.props.stageInstrument}/>}/>
-          <Route path="/staging" render={(routerProps) => <Staging {...routerProps}/>}/>
+          <Route path="/staging" render={(routerProps) => <Staging {...routerProps} stage={this.props.stage} instruments={this.props.instruments}/>}/>
         </BrowserRouter>
         
         {/* <Footer/> */}

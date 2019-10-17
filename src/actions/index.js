@@ -33,7 +33,6 @@ export function showInstrument(id){
 }
 
 export function stageInstrument(instrument){
-    console.log(instrument);
     return {
         type: "ADD_TO_STAGE",
         stageInstrument: instrument
