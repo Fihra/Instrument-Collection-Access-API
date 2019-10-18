@@ -9,7 +9,7 @@ class Staging extends React.Component {
             <div className="main-container">
                 <h3>Staging</h3>
                 <StageContainer stage={this.props.stage} instruments={this.props.instruments}/>
-                <Palette/>
+                {/* <Palette/> */}
                 <Venue/>
             </div>
         )
