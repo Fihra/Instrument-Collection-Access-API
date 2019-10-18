@@ -48,8 +48,8 @@ class Venue extends React.Component {
     handleDragStart = (e) => {
         e.target.setAttrs({
             shadowOffset: {
-                x: 15,
-                y: 15
+                x: 1,
+                y: 1
             },
             scaleX: 1.1,
             scaleY: 1.1
@@ -62,8 +62,6 @@ class Venue extends React.Component {
             easing: Konva.Easings.ElasticEaseOut,
             scaleX: 1,
             scaleY: 1,
-            shadowOffsetX: 5,
-            shadowOffsetY: 5 
         })
     }
 
