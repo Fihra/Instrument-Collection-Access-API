@@ -6,10 +6,18 @@ import Konva from 'konva';
 
 class Venue extends React.Component {
     state = {
-        canvas: [
+        square: [
             {
                 x: 25,
                 y: 25,
+                width: 25,
+                height: 25
+            }
+        ],
+        circular: [
+            {
+                x: 100,
+                y: 35,
                 width: 25,
                 height: 25
             }
@@ -29,6 +37,13 @@ class Venue extends React.Component {
         width: 25,
         height: 25
     });
+
+    createCircle = () => ({
+        x: 100,
+        y: 35,
+        width: 25,
+        height: 25
+    })
 
     handleDragStart = (e) => {
         e.target.setAttrs({
@@ -52,9 +67,15 @@ class Venue extends React.Component {
         })
     }
 
-    handleNewClick = () => {
+    handleNewSquare = () => {
         this.setState(prevState => ({
-            canvas: [...prevState.canvas, { ...this.createRectangle() }]
+            square: [...prevState.square, { ...this.createRectangle() }]
+        }));
+    }
+
+    handleNewCircle = () => {
+        this.setState(prevState => ({
+            circular: [...prevState.circular, {...this.createCircle() }]
         }));
     }
 
@@ -65,10 +86,15 @@ class Venue extends React.Component {
             <Stage width={900} height={700} drawBorder={true}>
                 <Layer>
                     <Text text="Palette" x={10} y={0} fill="white"/>
-                    {this.state.canvas.map(({ height, width, x, y }, key) => (
-                        <Rect key={key} x={x} y={y} width={width} height={height} fill="white" draggable onDragStart={this.handleDragStart} onDragEnd={this.handleDragEnd} onClick={this.handleNewClick}/>
+                    {this.state.square.map(({ height, width, x, y }, key) => (
+                        <Rect key={key} x={x} y={y} width={width} height={height} fill="white" draggable onDragStart={this.handleDragStart} onDragEnd={this.handleDragEnd} onClick={this.handleNewSquare}/>
                         // <Circle key={key} x={x} y={y} width={width} height={height} fill="white" draggable={true}/>
                     ))}
+                    {this.state.circular.map(({ height, width, x, y }, key) => (
+                        <Circle key={key} x={x} y={y} width={width} height={height} fill="white" draggable onDragStart={this.handleDragStart} onDragEnd={this.handleDragEnd} onClick={this.handleNewCircle}/>
+                        // <Circle key={key} x={x} y={y} width={width} height={height} fill="white" draggable={true}/>
+                    ))}
+                    
                     
                     {/* <Rect x={25} y={25} width={25} height={25} fill="white" draggable onDragStart={this.handleDragStart} onDragEnd={this.handleDragEnd} onClick={this.handleNewClick}/>
                     <Circle x={100} y={35} width={25} height={25} fill="white" draggable={true}/> */}
