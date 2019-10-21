@@ -38,14 +38,12 @@ class App extends React.Component {
         <Navbar/>
         <Sidebar/>
           <Route exact path="/" render={(routerProps) => <AllInstruments {...routerProps} instruments={this.props.instruments}/>}/>
-          {/* <Route exact path="/" render={(routerProps) => <InstrumentContainer {...routerProps}/>}/> */}
           <Route path="/about" render={(routerProps) => <About {...routerProps}/>}/>
           <Route path="/newinstrument" render={(routerProps) => <NewInstrumentForm {...routerProps}/>}/>
           <Route path="/instruments/:name" render={(routerProps) => <InstrumentCard {...routerProps} instruments={this.props.instruments} stageInstrument={this.props.stageInstrument}/>}/>
           <Route path="/staging" render={(routerProps) => <Staging {...routerProps} stage={this.props.stage} instruments={this.props.instruments}/>}/>
         </BrowserRouter>
         
-        {/* <Footer/> */}
       </div>
     );
   }

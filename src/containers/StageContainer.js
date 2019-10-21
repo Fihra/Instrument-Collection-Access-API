@@ -1,22 +1,19 @@
 import React from 'react';
 
 class StageContainer extends React.Component{
-    constructor(){
-        super();
-        this.state = {
-            toggleInstrument: false
-            
-        }
-    }
-
-    instrumentClick = (e) => {
-        console.log("clicked");
-    }
-
     listSavedList = (savedInstruments) => {
-        return savedInstruments.map((instrument) => {
-            return <li><button onClick={() => this.instrumentClick()}>{instrument.Name}</button></li>
+        // return savedInstruments.map((instrument) => {
+        //     return <li><button onClick={() => this.instrumentClick()}>{instrument.Name}</button></li>
+        // })
+        return savedInstruments.map((instrument, key) => {
+            return <option key={key} value={instrument.Name}>{instrument.Name}</option>
         })
+    }
+
+    handleChange = (e) => {
+        e.preventDefault();
+        this.props.instrumentChange(e.target.value);
+        // console.log(e.target.value);
     }
 
     render(){
@@ -37,14 +34,15 @@ class StageContainer extends React.Component{
         console.log(filteredArray);
         //const { Id, Name, Origin, Year } = filtered[0];
 
-        
-
         return(
             <div>
                 <h3>Saved List</h3>
-                <ul>
+                {/* <ul>
                     {this.listSavedList(filteredArray)}
-                </ul>
+                </ul> */}
+                <select onChange={this.handleChange}>
+                    {this.listSavedList(filteredArray)}
+                </select>
             </div>
         )
     }

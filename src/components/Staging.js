@@ -1,14 +1,27 @@
 import React from 'react';
-import StageContainer from './StageContainer';
+import StageContainer from '../containers/StageContainer';
 import Venue from './Venue';
-import Palette from './Palette';
 
 class Staging extends React.Component {
+    constructor(){
+        super();
+        this.state = {
+            selectedStagingInstrument: ""
+            
+        }
+    }
+
+    instrumentChange = (instrumentName) => {
+        this.setState({
+            selectedStagingInstrument: instrumentName 
+        })
+    }
+
     render(){
         return(
             <div className="main-container">
                 <h3>Staging</h3>
-                <StageContainer stage={this.props.stage} instruments={this.props.instruments}/>
+                <StageContainer stage={this.props.stage} instruments={this.props.instruments} instrumentChange={this.instrumentChange}/>
                 <Venue/>
             </div>
         )

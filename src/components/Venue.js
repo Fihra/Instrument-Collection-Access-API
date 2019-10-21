@@ -1,11 +1,14 @@
 import React from 'react';
 import { Stage, Layer, Rect, Text, Tag, Label, Circle } from 'react-konva';
+import { ContextMenu, MenuItem, ContextMenuTrigger } from 'react-contextmenu';
 import Konva from 'konva';
 
 
 
 class Venue extends React.Component {
     state = {
+        mouseX: 0,
+        mouseY: 0,
         newText: [
             {
                 text: "New Text",
@@ -95,6 +98,10 @@ class Venue extends React.Component {
             circular: [...prevState.circular, {...this.createCircle() }]
         }));
     }
+    
+    clickingMe = (e, data) => {
+        console.log(e, data);
+    }
 
     render(){
    
@@ -114,8 +121,24 @@ class Venue extends React.Component {
                         <Circle key={key} x={x} y={y} width={width} height={height} fill="white" draggable onDragStart={this.handleDragStart} onDragEnd={this.handleDragEnd} onClick={this.handleNewCircle}/>
                         // <Circle key={key} x={x} y={y} width={width} height={height} fill="white" draggable={true}/>
                     ))}
+                    {/* <ContextMenuTrigger id="testing">
+                        <Text text="Test" fontSize={25} x={100} y={100} fill="white"/>
+                    </ContextMenuTrigger>
+
+                    <ContextMenu id="Show me stuff">
+                        <MenuItem data={{ehh: 'oooh'}} onClick={this.ClickingMe}>
+                            First Item
+                        </MenuItem>
+                        <MenuItem data={{ehh: 'oooh'}} onClick={this.ClickingMe}>
+                            Second Item
+                        </MenuItem>
+                        <MenuItem divider/>
+                        <MenuItem data={{ehh: 'oooh'}} onClick={this.ClickingMe}>
+                            <Text text="Test" fontSize={25} x={100} y={100} fill="white" onContextMenu={this.clickingMe}/>Third Item
+                        </MenuItem>
+                    </ContextMenu> */}
                     
-                    
+                    <Text text="Testing" fontSize={20} x={100} y={200} fill="white"/>
                     {/* <Rect x={25} y={25} width={25} height={25} fill="white" draggable onDragStart={this.handleDragStart} onDragEnd={this.handleDragEnd} onClick={this.handleNewClick}/>
                     <Circle x={100} y={35} width={25} height={25} fill="white" draggable={true}/> */}
 
