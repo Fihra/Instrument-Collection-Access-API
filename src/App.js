@@ -36,7 +36,7 @@ class App extends React.Component {
         
         <BrowserRouter>
         <Navbar/>
-        <Sidebar/>
+        
           <Route exact path="/" render={(routerProps) => <AllInstruments {...routerProps} instruments={this.props.instruments}/>}/>
           <Route path="/about" render={(routerProps) => <About {...routerProps}/>}/>
           <Route path="/newinstrument" render={(routerProps) => <NewInstrumentForm {...routerProps}/>}/>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Sidebar from './Sidebar';
 
 class AllInstruments extends React.Component {
 
@@ -13,11 +14,15 @@ class AllInstruments extends React.Component {
     render(){
         const { instruments} = this.props;
         return (
-            <div className="main-container">
-                <h2>Instruments List</h2>
-                <ul>
-                {this.showInstruments(instruments)}
-                </ul>
+            <div>
+                <Sidebar/>
+                <div className="main-container">
+                    <h2>Instruments List</h2>
+                    <ul>
+                    {this.showInstruments(instruments)}
+                    </ul>
+                </div>
+                
             </div>
         );
     }
