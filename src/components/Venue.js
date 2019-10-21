@@ -12,7 +12,12 @@ class Venue extends React.Component {
         selectedItem: ""
     }
 
+    newID = () => {
+        return Math.random().toString(36).substring(2, 9);
+    }
+
     createText = () => ({
+        id: this.newID(),
         text: "Instrument",
         x: 45,
         y: 55,
@@ -54,26 +59,16 @@ class Venue extends React.Component {
             text: this.props.selectedStageInstrument
         })
         console.log(this.state.newText);
-        //debugger;
 
-        if(this.props.selectedStageInstrument === "Delete"){
-            console.log(e.target.index);
-            console.log(this.state.newText);
-            console.log(this.state.newText[e.target.index - 2])
-            let result = window.confirm("Are you sure you want to delete this object?");
-
-            if(result){
-                this.handleDelete(e.target.index - 2);
-            }
-            // if(window.confirm("Are you sure you want to delete this object?")){
-            //     window.alert("Yay", "Nay");
-            // }
-
-        }
     }
 
     handleDelete = (item) => {
         console.log("Deleting " + item);
+        this.setState({
+            newText: this.state.newText.filter((instrument, key) => {
+                return instrument.id !== item;
+            })
+        })
     }
 
     handleDragEnd = (e) => {
@@ -83,6 +78,18 @@ class Venue extends React.Component {
             scaleX: 1,
             scaleY: 1,
         })
+
+        if(this.props.selectedStageInstrument === "Delete"){
+            console.log(e.target.attrs.id);
+            console.log(this.state.newText);
+            let result = window.confirm("Are you sure you want to delete this object?");
+
+            if(result){
+                this.handleDelete(e.target.attrs.id);
+            }
+        }
+        
+
     }
 
     handleNewText = () => {
@@ -116,8 +123,8 @@ class Venue extends React.Component {
                     <Text text="Palette" fontSize={20} x={10} y={0} fill="white"/>
                     {/* New Text Control Palette */}
                     <Text x={25} y={30} text="New Instrument" fill="white" draggable={false} onClick={this.handleNewText}/>
-                    {this.state.newText.map(({text, x, y}, key) => (
-                        <Text key={key} text={text} x={x} y={y} fill="white" draggable onDragStart={this.handleDragStart} onDragEnd={this.handleDragEnd} />
+                    {this.state.newText.map(({text, x, y, id}, key) => (
+                        <Text key={key} text={text} x={x} y={y} id={id} fill="white" draggable onDragStart={this.handleDragStart} onDragEnd={this.handleDragEnd} />
                     ))}
 
                     {/* New Square Control Palette */}
