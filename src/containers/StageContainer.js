@@ -42,6 +42,7 @@ class StageContainer extends React.Component{
                 </ul> */}
                 <select onChange={this.handleChange}>
                     <option value="Move">Move</option>
+                    <option value="Delete">Delete</option>
                     {this.listSavedList(filteredArray)}
                 </select>
             </div>
