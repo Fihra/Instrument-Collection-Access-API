@@ -11,7 +11,7 @@ class Venue extends React.Component {
         mouseY: 0,
         newText: [
             {
-                text: "New Text",
+                text: "Instrument",
                 x: 25,
                 y: 25,
             }
@@ -31,8 +31,8 @@ class Venue extends React.Component {
                 width: 25,
                 height: 25
             }
-        ]
-        
+        ],
+        selectedItem: ""
     }
 
     handleClick = () => {
@@ -42,7 +42,7 @@ class Venue extends React.Component {
     }
 
     createText = () => ({
-        text: "New Text",
+        text: "Instrument",
         x: 25,
         y: 25,
     })
@@ -70,6 +70,20 @@ class Venue extends React.Component {
             scaleX: 1.1,
             scaleY: 1.1
         });
+        console.log(e)
+        this.setState({
+            selectedItem: e.currentTarget
+        })
+        console.log(this.state.selectedItem)
+        // this.setState({
+        //     selectedItem.attrs.text: this.props.selectedStageInstrument;
+        // })
+        if(this.props.selectedStageInstrument)
+        e.target.setAttrs({
+            text: this.props.selectedStageInstrument
+        })
+        
+        // e.target._partialText = this.state.selectedItem;
     }
 
     handleDragEnd = (e) => {
@@ -138,7 +152,7 @@ class Venue extends React.Component {
                         </MenuItem>
                     </ContextMenu> */}
                     
-                    <Text text="Testing" fontSize={20} x={100} y={200} fill="white"/>
+                    {/* <Text text={this.props.selectedStageInstrument} fontSize={20} x={100} y={200} fill="white" draggable/> */}
                     {/* <Rect x={25} y={25} width={25} height={25} fill="white" draggable onDragStart={this.handleDragStart} onDragEnd={this.handleDragEnd} onClick={this.handleNewClick}/>
                     <Circle x={100} y={35} width={25} height={25} fill="white" draggable={true}/> */}
 

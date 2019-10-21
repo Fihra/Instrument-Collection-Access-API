@@ -22,7 +22,7 @@ class Staging extends React.Component {
             <div className="main-container">
                 <h3>Staging</h3>
                 <StageContainer stage={this.props.stage} instruments={this.props.instruments} instrumentChange={this.instrumentChange}/>
-                <Venue/>
+                <Venue selectedStageInstrument={this.state.selectedStagingInstrument}/>
             </div>
         )
     }
