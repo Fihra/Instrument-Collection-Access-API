@@ -1,8 +1,3 @@
-// const initialState = {
-//     instruments: [],
-//     oneInstrument: {}
-// }
-
 const initialState = {
     instruments: [],
     stage: []

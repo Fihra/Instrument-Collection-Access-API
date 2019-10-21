@@ -6,9 +6,16 @@ import Konva from 'konva';
 
 class Venue extends React.Component {
     state = {
+        newText: [
+            {
+                text: "New Text",
+                x: 25,
+                y: 25,
+            }
+        ],
         square: [
             {
-                x: 25,
+                x: 125,
                 y: 25,
                 width: 25,
                 height: 25
@@ -16,7 +23,7 @@ class Venue extends React.Component {
         ],
         circular: [
             {
-                x: 100,
+                x: 175,
                 y: 35,
                 width: 25,
                 height: 25
@@ -30,6 +37,12 @@ class Venue extends React.Component {
             color: Konva.Util.getRandomColor()
         });
     }
+
+    createText = () => ({
+        text: "New Text",
+        x: 25,
+        y: 25,
+    })
 
     createRectangle = () => ({
         x: 25,
@@ -65,6 +78,12 @@ class Venue extends React.Component {
         })
     }
 
+    handleNewText = () => {
+        this.setState(prevState => ({
+            newText: [...prevState.newText, {...this.createText()}]
+        }))
+    }
+
     handleNewSquare = () => {
         this.setState(prevState => ({
             square: [...prevState.square, { ...this.createRectangle() }]
@@ -83,7 +102,10 @@ class Venue extends React.Component {
             <div>
             <Stage width={900} height={700} drawBorder={true}>
                 <Layer>
-                    <Text text="Palette" x={10} y={0} fill="white"/>
+                    <Text text="Palette" fontSize={20} x={10} y={0} fill="white"/>
+                    {this.state.newText.map(({text, x, y}, key) => (
+                        <Text key={key} text={text} x={x} y={y} fill="white" draggable onDragStart={this.handleDragStart} onDragEnd={this.handleDragEnd} onClick={this.handleNewText}/>
+                    ))}
                     {this.state.square.map(({ height, width, x, y }, key) => (
                         <Rect key={key} x={x} y={y} width={width} height={height} fill="white" draggable onDragStart={this.handleDragStart} onDragEnd={this.handleDragEnd} onClick={this.handleNewSquare}/>
                         // <Circle key={key} x={x} y={y} width={width} height={height} fill="white" draggable={true}/>
