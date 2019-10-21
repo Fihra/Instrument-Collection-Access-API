@@ -7,11 +7,7 @@ class Venue extends React.Component {
         mouseX: 0,
         mouseY: 0,
         newText: [
-            {
-                text: "Instrument",
-                x: 45,
-                y: 25,
-            }
+            
         ],
         square: [
             {
@@ -41,7 +37,7 @@ class Venue extends React.Component {
     createText = () => ({
         text: "Instrument",
         x: 45,
-        y: 25,
+        y: 55,
     })
 
     createRectangle = () => ({
@@ -121,9 +117,9 @@ class Venue extends React.Component {
             <Stage width={900} height={700} drawBorder={true}>
                 <Layer>
                     <Text text="Palette" fontSize={20} x={10} y={0} fill="white"/>
-                    {/* <Text x={25} y={30} text="New Instrument" fill="white" draggable={false} onClick={this.handleNewText}/> */}
+                    <Text x={25} y={30} text="New Instrument" fill="white" draggable={false} onClick={this.handleNewText}/>
                     {this.state.newText.map(({text, x, y}, key) => (
-                        <Text key={key} text={text} x={x} y={y} fill="white" draggable onDragStart={this.handleDragStart} onDragEnd={this.handleDragEnd} onClick={this.handleNewText}/>
+                        <Text key={key} text={text} x={x} y={y} fill="white" draggable onDragStart={this.handleDragStart} onDragEnd={this.handleDragEnd} />
                     ))}
                     {this.state.square.map(({ height, width, x, y }, key) => (
                         <Rect key={key} x={x} y={y} width={width} height={height} fill="white" draggable onDragStart={this.handleDragStart} onDragEnd={this.handleDragEnd} onClick={this.handleNewSquare}/>
