@@ -9,7 +9,6 @@ class Venue extends React.Component {
         newText: [],
         square: [],
         circular: [],
-        selectedItem: ""
     }
 
     newID = () => {
@@ -48,16 +47,24 @@ class Venue extends React.Component {
         });
         console.log(e)
         this.setState({
-            selectedItem: e.currentTarget
+            selectedItem: e.Target
         })
-        console.log(this.state.selectedItem)
         // this.setState({
         //     selectedItem.attrs.text: this.props.selectedStageInstrument;
         // })
-        if(this.props.selectedStageInstrument && (this.props.selectedStageInstrument !== "Move") && (this.props.selectedStageInstrument !== "Delete"))
-        e.target.setAttrs({
-            text: this.props.selectedStageInstrument
-        })
+        console.log(this.props.selectedStageInstrument);
+        if(this.props.selectedStageInstrument && (this.props.selectedStageInstrument !== "Move") && (this.props.selectedStageInstrument !== "Delete")){
+            e.target.setAttrs({
+                text: this.props.selectedStageInstrument
+            })
+            // this.setState((prevState) => ({
+            //     newText: [
+            //         ...prevState,
+            //         [prevState.newText]
+            //     ]
+            // }))
+        }
+        
         console.log(this.state.newText);
 
     }
