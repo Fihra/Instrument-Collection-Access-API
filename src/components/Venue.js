@@ -6,25 +6,9 @@ class Venue extends React.Component {
     state = {
         mouseX: 0,
         mouseY: 0,
-        newText: [
-            
-        ],
-        square: [
-            {
-                x: 125,
-                y: 25,
-                width: 25,
-                height: 25
-            }
-        ],
-        circular: [
-            {
-                x: 175,
-                y: 35,
-                width: 25,
-                height: 25
-            }
-        ],
+        newText: [],
+        square: [],
+        circular: [],
         selectedItem: ""
     }
 
@@ -41,15 +25,15 @@ class Venue extends React.Component {
     })
 
     createRectangle = () => ({
-        x: 25,
-        y: 25,
+        x: 125,
+        y: 75,
         width: 25,
         height: 25
     });
 
     createCircle = () => ({
-        x: 100,
-        y: 35,
+        x: 175,
+        y: 75,
         width: 25,
         height: 25
     })
@@ -117,38 +101,26 @@ class Venue extends React.Component {
             <Stage width={900} height={700} drawBorder={true}>
                 <Layer>
                     <Text text="Palette" fontSize={20} x={10} y={0} fill="white"/>
+                    {/* New Text Control Palette */}
                     <Text x={25} y={30} text="New Instrument" fill="white" draggable={false} onClick={this.handleNewText}/>
                     {this.state.newText.map(({text, x, y}, key) => (
                         <Text key={key} text={text} x={x} y={y} fill="white" draggable onDragStart={this.handleDragStart} onDragEnd={this.handleDragEnd} />
                     ))}
-                    {this.state.square.map(({ height, width, x, y }, key) => (
-                        <Rect key={key} x={x} y={y} width={width} height={height} fill="white" draggable onDragStart={this.handleDragStart} onDragEnd={this.handleDragEnd} onClick={this.handleNewSquare}/>
-                        // <Circle key={key} x={x} y={y} width={width} height={height} fill="white" draggable={true}/>
-                    ))}
-                    {this.state.circular.map(({ height, width, x, y }, key) => (
-                        <Circle key={key} x={x} y={y} width={width} height={height} fill="white" draggable onDragStart={this.handleDragStart} onDragEnd={this.handleDragEnd} onClick={this.handleNewCircle}/>
-                        // <Circle key={key} x={x} y={y} width={width} height={height} fill="white" draggable={true}/>
-                    ))}
-                    {/* <ContextMenuTrigger id="testing">
-                        <Text text="Test" fontSize={25} x={100} y={100} fill="white"/>
-                    </ContextMenuTrigger>
 
-                    <ContextMenu id="Show me stuff">
-                        <MenuItem data={{ehh: 'oooh'}} onClick={this.ClickingMe}>
-                            First Item
-                        </MenuItem>
-                        <MenuItem data={{ehh: 'oooh'}} onClick={this.ClickingMe}>
-                            Second Item
-                        </MenuItem>
-                        <MenuItem divider/>
-                        <MenuItem data={{ehh: 'oooh'}} onClick={this.ClickingMe}>
-                            <Text text="Test" fontSize={25} x={100} y={100} fill="white" onContextMenu={this.clickingMe}/>Third Item
-                        </MenuItem>
-                    </ContextMenu> */}
-                    
-                    {/* <Text text={this.props.selectedStageInstrument} fontSize={20} x={100} y={200} fill="white" draggable/> */}
-                    {/* <Rect x={25} y={25} width={25} height={25} fill="white" draggable onDragStart={this.handleDragStart} onDragEnd={this.handleDragEnd} onClick={this.handleNewClick}/>
-                    <Circle x={100} y={35} width={25} height={25} fill="white" draggable={true}/> */}
+                    {/* New Square Control Palette */}
+                    <Rect x={125} y={25} width={25} height={25} fill="white" draggable={false} onClick={this.handleNewSquare}/>
+                    {this.state.square.map(({ height, width, x, y }, key) => (
+                        <Rect key={key} x={x} y={y} width={width} height={height} fill="white" draggable onDragStart={this.handleDragStart} onDragEnd={this.handleDragEnd}/>
+
+                    ))}
+
+                    {/* New Circle Control Palette */}
+                    <Circle x={175} y={35} width={25} height={25} fill="white" draggable={false} onClick={this.handleNewCircle}/>
+                    {this.state.circular.map(({ height, width, x, y }, key) => (
+                        <Circle key={key} x={x} y={y} width={width} height={height} fill="white" draggable onDragStart={this.handleDragStart} onDragEnd={this.handleDragEnd}/>
+
+                    ))}
+
 
                     <Rect x={0} y={550} width={900} height={500} fill="black"/>
                     <Text text="Audience" x={200} y={600} fill="white"/>
