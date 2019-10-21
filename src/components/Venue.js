@@ -1,9 +1,6 @@
 import React from 'react';
 import { Stage, Layer, Rect, Text, Tag, Label, Circle } from 'react-konva';
-import { ContextMenu, MenuItem, ContextMenuTrigger } from 'react-contextmenu';
 import Konva from 'konva';
-
-
 
 class Venue extends React.Component {
     state = {
@@ -78,7 +75,7 @@ class Venue extends React.Component {
         // this.setState({
         //     selectedItem.attrs.text: this.props.selectedStageInstrument;
         // })
-        if(this.props.selectedStageInstrument)
+        if(this.props.selectedStageInstrument && (this.props.selectedStageInstrument !== "Move"))
         e.target.setAttrs({
             text: this.props.selectedStageInstrument
         })
