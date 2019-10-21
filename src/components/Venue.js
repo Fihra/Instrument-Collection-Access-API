@@ -12,12 +12,6 @@ class Venue extends React.Component {
         selectedItem: ""
     }
 
-    handleClick = () => {
-        this.setState({
-            color: Konva.Util.getRandomColor()
-        });
-    }
-
     createText = () => ({
         text: "Instrument",
         x: 45,
@@ -55,12 +49,31 @@ class Venue extends React.Component {
         // this.setState({
         //     selectedItem.attrs.text: this.props.selectedStageInstrument;
         // })
-        if(this.props.selectedStageInstrument && (this.props.selectedStageInstrument !== "Move"))
+        if(this.props.selectedStageInstrument && (this.props.selectedStageInstrument !== "Move") && (this.props.selectedStageInstrument !== "Delete"))
         e.target.setAttrs({
             text: this.props.selectedStageInstrument
         })
-        
-        // e.target._partialText = this.state.selectedItem;
+        console.log(this.state.newText);
+        //debugger;
+
+        if(this.props.selectedStageInstrument === "Delete"){
+            console.log(e.target.index);
+            console.log(this.state.newText);
+            console.log(this.state.newText[e.target.index - 2])
+            let result = window.confirm("Are you sure you want to delete this object?");
+
+            if(result){
+                this.handleDelete(e.target.index - 2);
+            }
+            // if(window.confirm("Are you sure you want to delete this object?")){
+            //     window.alert("Yay", "Nay");
+            // }
+
+        }
+    }
+
+    handleDelete = (item) => {
+        console.log("Deleting " + item);
     }
 
     handleDragEnd = (e) => {
