@@ -8,7 +8,7 @@ class NewInstrumentForm extends React.Component {
             name: "name",
             origin: "origin",
             year: 0,
-            classification: "classification"
+            classification: "chordophone"
         }
     }
 
@@ -46,8 +46,16 @@ class NewInstrumentForm extends React.Component {
                     <input type="text" name="origin" placeholder="origin" onChange={this.handleChange}></input>
                     <label for="i-year">Year</label>
                     <input type="number" name="year" placeholder="year" onChange={this.handleChange}></input>
-                    <label for="i-class">Classification</label>
-                    <input type="text" name="classification" placeholder="classification" onChange={this.handleChange}></input>
+                    <label for="i-class">Classification
+                        <select name="classification" value={this.state.classification} onChange={this.handleChange}>
+                            <option value="chordophone">Chordophone</option>
+                            <option value="aerophone">Aerophone</option>
+                            <option value="idiophone">Idiophone</option>
+                            <option value="membranophone">Membranophone</option>
+                            <option value="electrophone">Electrophone</option>
+                        </select>
+                    </label>
+                    {/* <input type="text" name="classification" placeholder="classification" onChange={this.handleChange}></input> */}
                     <input type="submit" value="Submit"></input>
                     <input type="reset"></input>
                 </form>
