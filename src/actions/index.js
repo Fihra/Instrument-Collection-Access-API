@@ -19,6 +19,22 @@ export function getInstruments(instruments){
     }
 }
 
+export function deleteInstrument(id){
+    return((dispatch) => {
+        axios.delete(`${API}/${id}/delete`)
+        .then(resp => {
+            dispatch(deletingInstrument(id));
+        })
+    })
+}
+
+export function deletingInstrument(instrument){
+    return{
+        type: "DELETE_INSTRUMENT",
+        deletedInstrument: instrument
+    }
+}
+
 //TODO Refactor without doing another API call
 //Fetch API for One Instrument
 export function showInstrument(id){
@@ -29,7 +45,6 @@ export function showInstrument(id){
             dispatch(stageInstrument(resp.data));
         })
     })
-
 }
 
 export function stageInstrument(instrument){

@@ -12,7 +12,7 @@ import Sidebar from './components/Sidebar';
 
 import { Route, BrowserRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { showInstrument, stageInstrument } from './actions';
+import { showInstrument, stageInstrument, deleteInstrument } from './actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -24,7 +24,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
       getInstrument: (id) => dispatch(showInstrument(id)),
-      stageInstrument: (id) => dispatch(stageInstrument(id))
+      stageInstrument: (id) => dispatch(stageInstrument(id)),
+      deleteInstrument: (id) => dispatch(deleteInstrument(id))
   }
 }
 
@@ -40,7 +41,7 @@ class App extends React.Component {
           <Route exact path="/" render={(routerProps) => <AllInstruments {...routerProps} instruments={this.props.instruments}/>}/>
           <Route path="/about" render={(routerProps) => <About {...routerProps}/>}/>
           <Route path="/newinstrument" render={(routerProps) => <NewInstrumentForm {...routerProps}/>}/>
-          <Route path="/instruments/:name" render={(routerProps) => <InstrumentCard {...routerProps} instruments={this.props.instruments} stageInstrument={this.props.stageInstrument}/>}/>
+          <Route path="/instruments/:name" render={(routerProps) => <InstrumentCard {...routerProps} instruments={this.props.instruments} stageInstrument={this.props.stageInstrument} deleteInstrument={this.props.deleteInstrument}/>}/>
           <Route path="/staging" render={(routerProps) => <Staging {...routerProps} stage={this.props.stage} instruments={this.props.instruments}/>}/>
         </BrowserRouter>
         

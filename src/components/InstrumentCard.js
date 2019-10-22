@@ -13,7 +13,12 @@ const InstrumentCard = (props) => {
     const handleClick = (id) => {
         console.log(id);
         props.stageInstrument(id);
-        return <span>Instrument Added</span>
+        //return <span>Instrument Added</span>
+    }
+    
+    const handleDelete = (id) => {
+        console.log(id);
+        props.deleteInstrument(id);
     }
 
     return(
@@ -28,7 +33,7 @@ const InstrumentCard = (props) => {
             <button onClick={()=> handleClick(Id)}>Add to Staging List</button>
             {/* <button onClick={() => handleClick(Id)}>Add to Staging List</button> */}
             <button>Edit</button>
-            <button>Delete</button>
+            <button onClick={() => handleDelete(Id)}>Delete</button>
         </div>
     )
 }
