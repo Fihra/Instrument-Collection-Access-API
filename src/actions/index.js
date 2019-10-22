@@ -19,12 +19,13 @@ export function getInstruments(instruments){
     }
 }
 
-export function deleteInstrument(id){
+export function deleteInstrument(id, history){
     return((dispatch) => {
         axios.delete(`${API}/${id}/delete`)
         .then(resp => {
             dispatch(deletingInstrument(id));
         })
+        history.push('/');
     })
 }
 

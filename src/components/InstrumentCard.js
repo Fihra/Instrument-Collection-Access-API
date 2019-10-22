@@ -18,7 +18,7 @@ const InstrumentCard = (props) => {
     
     const handleDelete = (id) => {
         console.log(id);
-        props.deleteInstrument(id);
+        props.deleteInstrument(id, props.history);
     }
 
     return(

@@ -25,7 +25,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
       getInstrument: (id) => dispatch(showInstrument(id)),
       stageInstrument: (id) => dispatch(stageInstrument(id)),
-      deleteInstrument: (id) => dispatch(deleteInstrument(id))
+      deleteInstrument: (id, history) => dispatch(deleteInstrument(id, history))
   }
 }
 

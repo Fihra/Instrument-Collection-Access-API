@@ -14,7 +14,7 @@ const mainReducer = (state = initialState, action) => {
         case "DELETE_INSTRUMENT":
             const instrumentID = action.deletedInstrument;
             return {
-                ...state.filter(instrument => instrument.ID !== instrumentID)
+                instruments: state.instruments.filter(instrument => instrument.ID !== instrumentID)
             }
         case "ADD_TO_STAGE":
             return {
