@@ -10,6 +10,11 @@ const mainReducer = (state = initialState, action) => {
                 ...state,
                     instruments: action.instruments
             }
+        case "ADD_INSTRUMENT":
+            return{
+                ...state,
+                instruments: [...state.instruments, action.newInstrument]
+            }
         //TODO: DELETE INSTRUMENT
         case "DELETE_INSTRUMENT":
             const instrumentID = action.deletedInstrument;

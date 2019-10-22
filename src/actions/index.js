@@ -19,6 +19,25 @@ export function getInstruments(instruments){
     }
 }
 
+export function newInstrument(name, origin, year, classification){
+    return((dispatch) => {
+        axios.post(`${API}/new`, {
+            Name: name,
+            Origin: origin,
+            Year: year,
+            Classification: classification
+        })
+        .then(resp => dispatch(creatingInstrument(resp.data)))
+    })
+}
+
+export function creatingInstrument(instrument){
+    return {
+        type: "ADD_INSTRUMENT",
+        newInstrument: instrument
+    }
+}
+
 export function deleteInstrument(id, history){
     return((dispatch) => {
         axios.delete(`${API}/${id}/delete`)

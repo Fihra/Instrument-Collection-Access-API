@@ -20,18 +20,19 @@ class NewInstrumentForm extends React.Component {
 
     handleSubmit = (e) => {
          e.preventDefault();
+        
+         this.props.newInstrument(this.state.name, this.state.origin, this.state.year, this.state.classification)
+        //  const API = 'http://localhost:52371/api/instruments/new';
 
-         const API = 'http://localhost:52371/api/instruments/new';
-
-         axios.post(API, {
-             Name: this.state.name,
-             Origin: this.state.origin,
-             Year: this.state.year,
-             Classification: this.state.classification
-         })
-         .then(resp => {
-             console.log(resp.data)
-         })
+        //  axios.post(API, {
+        //      Name: this.state.name,
+        //      Origin: this.state.origin,
+        //      Year: this.state.year,
+        //      Classification: this.state.classification
+        //  })
+        //  .then(resp => {
+        //      console.log(resp.data)
+        //  })
     }
 
     //TODO: VALIDATIONS
