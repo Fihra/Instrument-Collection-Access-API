@@ -3,7 +3,7 @@ import React from 'react';
 class Sidebar extends React.Component {
 
 
-    handleClick = (event) => {
+    handleChange = (event) => {
         //console.log(e.target.name);
         this.props.handleToggle(event);
     }
@@ -13,12 +13,12 @@ class Sidebar extends React.Component {
                 <h3>Filter</h3>
                 <p>Insert searchbar here</p>
                 <label>Alphabetical</label>
-                <input type="checkbox" name="isAlphabetical" onClick={this.handleClick}/>
+                <input type="radio" name="FilterGroup" value="isAlphabetical" onChange={this.handleChange}/>
                 <label>Classification</label>
-                <input type="checkbox" name="isClassification" value={false} onClick={this.handleClick}/>
+                <input type="radio" name="FilterGroup" value="isClassification" onChange={this.handleChange}/>
                 <br/>
                 <label>Year</label>
-                <input type="checkbox" name="isYear" value={false} onClick={this.handleClick}/>
+                <input type="radio" name="FilterGroup" value="isYear" onChange={this.handleChange}/>
                 
             </div>
         )

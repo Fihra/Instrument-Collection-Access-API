@@ -7,9 +7,10 @@ class AllInstruments extends React.Component {
         super();
         this.state = {
             searching: '',
-            isAlphabetical: false,
-            isClassification: false,
-            isYear: false,
+            // isAlphabetical: false,
+            // isClassification: false,
+            // isYear: false,
+            filterChoice: '',
             filtered: []
         }
     }
@@ -18,9 +19,17 @@ class AllInstruments extends React.Component {
     // to filtered data
     componentDidMount(){
         this.setState({
-            isAlphabetical: false,
-            isClassification: false,
-            isYear: false,
+            // isAlphabetical: false,
+            // isClassification: false,
+            // isYear: false,
+            filtered: this.props.instruments
+        })
+    }
+    componentWillUnmount(){
+        this.setState({
+            // isAlphabetical: false,
+            // isClassification: false,
+            // isYear: false,
             filtered: this.props.instruments
         })
     }
@@ -44,14 +53,14 @@ class AllInstruments extends React.Component {
     //     }
     // }
 
-    // handleAlphabetical = () => {
-    //     const alphabetically = this.state.filtered.sort((a, b) => {
-    //         if(a.Name < b.Name) return -1;
-    //         else if(a.Name > b.Name) return 1;
-    //         return 0;
-    //     })
-    //     console.log(alphabetically);
-    // }
+    handleAlphabetical = () => {
+        const alphabetically = this.state.filtered.sort((a, b) => {
+            if(a.Name < b.Name) return -1;
+            else if(a.Name > b.Name) return 1;
+            return 0;
+        })
+        console.log(alphabetically);
+    }
 
     handleClassification = () => {
 
@@ -63,21 +72,39 @@ class AllInstruments extends React.Component {
 
     showInstruments = (allInstruments) => {
         console.log(allInstruments);
+        console.log(this.state.filtered);
         // //Check Filters here
-        // if(this.state.isAlphabetical){
-        //     this.handleAlphabetical(allInstruments);
-        // }
+        
 
-        return allInstruments.map((instrument, i) => {
+        if(this.state.isAlphabetical || this.state.isClassification || this.state.isYear){
+            const filtered = allInstruments;
+            if(this.state.isAlphabetical){
+                this.handleAlphabetical(filtered);
+            }
+            else if(!this.state.isAlphabetical){
+                
+            }
+            return this.outputInstruments(filtered);
+        }else{
+            // return allInstruments.map((instrument, i) => {
+            //     return <li key={instrument.Name}><Link to={`/instruments/${instrument.Name}`}>{instrument.Name}</Link></li>
+            // })
+            return this.outputInstruments(allInstruments);
+        }
+  
+    }
+
+    outputInstruments = (theOutput) => {
+        const array = theOutput;
+        return array.map((instrument, i) => {
             return <li key={instrument.Name}><Link to={`/instruments/${instrument.Name}`}>{instrument.Name}</Link></li>
         })
-
-        
     }
 
     handleToggle = (event) => {
+        console.log(event.target);
         this.setState({
-            [event.target.name]: event.target.checked
+            filterChoice: event.target.value
         })
 
     }
