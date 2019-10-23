@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stage, Layer, Rect, Text, Tag, Label, Circle } from 'react-konva';
+import { Stage, Layer, Rect, Text, Circle } from 'react-konva';
 import Konva from 'konva';
 
 class Venue extends React.Component {

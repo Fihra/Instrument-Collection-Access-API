@@ -7,8 +7,15 @@ class NewInstrumentForm extends React.Component {
             name: "name",
             origin: "origin",
             year: 0,
-            classification: "chordophone"
+            classification: "chordophone",
+            message: ''
         }
+    }
+
+    componentDidMount(){
+        this.setState({
+            message: ''
+        })
     }
 
     handleChange = (e) => {
@@ -20,7 +27,16 @@ class NewInstrumentForm extends React.Component {
     handleSubmit = (e) => {
          e.preventDefault();
         
-         this.props.newInstrument(this.state.name, this.state.origin, this.state.year, this.state.classification)
+         this.props.newInstrument(this.state.name, this.state.origin, this.state.year, this.state.classification);
+
+         this.setState({
+             message: 'Instrument Submitted'
+         })
+         setTimeout(() => this.setState({
+            message: '',
+
+            }), 2000);
+        e.target.reset();
     }
 
     //TODO: VALIDATIONS
@@ -46,6 +62,7 @@ class NewInstrumentForm extends React.Component {
                     </label>
                     <input type="submit" value="Submit"></input>
                     <input type="reset"></input>
+                    {this.state.message === ''? <div></div> : <div>{this.state.message}</div>}
                 </form>
             </div>
         )
