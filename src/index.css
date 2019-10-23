@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(104, 60, 3);
+  background-color: #5e747f;
 }
 
 code {
@@ -44,7 +44,7 @@ code {
   text-decoration: none;
   display: inline-block;
   padding: 14px 16px;
-  background-color: rgb(5, 165, 0);
+  background-color: #73a580;
   color: white; 
 }
 
@@ -76,6 +76,14 @@ code {
 }
 
 /*Instrument Card*/
+.instrument-card {
+  position: relative;
+  float: right;
+  right: 650px;
+  top: 50px;
+
+}
+
 .instrument-card h3 {
   color: white;
 }

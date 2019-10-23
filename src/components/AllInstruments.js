@@ -73,16 +73,17 @@ class AllInstruments extends React.Component {
     showInstruments = (allInstruments) => {
         console.log(allInstruments);
         console.log(this.state.filtered);
+        let filtered = allInstruments;
         // //Check Filters here
         
 
         if(this.state.isAlphabetical || this.state.isClassification || this.state.isYear){
-            const filtered = allInstruments;
+            
             if(this.state.isAlphabetical){
                 this.handleAlphabetical(filtered);
             }
             else if(!this.state.isAlphabetical){
-                
+                return this.outputInstruments(allInstruments);
             }
             return this.outputInstruments(filtered);
         }else{
@@ -111,7 +112,7 @@ class AllInstruments extends React.Component {
 
     render(){
         const { instruments} = this.props;
-        const { isAlphabetical, isClassification, isYear, filtered } = this.state;
+        const { filtered } = this.state;
         return (
             <div>
                 <Sidebar handleToggle={this.handleToggle}/>
