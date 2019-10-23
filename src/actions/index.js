@@ -41,7 +41,7 @@ export function creatingInstrument(instrument){
 export function deleteInstrument(id, history){
     return((dispatch) => {
         axios.delete(`${API}/${id}/delete`)
-        .then(resp => {
+        .then(resp => { 
             dispatch(deletingInstrument(id));
         })
         history.push('/');
