@@ -33,8 +33,8 @@ class App extends React.Component {
       <div className="App">
         <BrowserRouter>
         <Navbar/>
-          <Route exact path="/" render={(routerProps) => <AllInstruments {...routerProps} instruments={this.props.instruments}/>}/>
-          <Route path="/about" render={(routerProps) => <About {...routerProps}/>}/>
+          <Route exact path="/" render={(routerProps) => <About {...routerProps}/>}/>
+          <Route path="/instruments" render={(routerProps) => <AllInstruments {...routerProps} instruments={this.props.instruments}/>}/>
           <Route path="/newinstrument" render={(routerProps) => <NewInstrumentForm {...routerProps} newInstrument={this.props.newInstrument}/>}/>
           <Route path="/instruments/:name" render={(routerProps) => <InstrumentCard {...routerProps} instruments={this.props.instruments} stageInstrument={this.props.stageInstrument} deleteInstrument={this.props.deleteInstrument}/>}/>
           <Route path="/staging" render={(routerProps) => <Staging {...routerProps} stage={this.props.stage} instruments={this.props.instruments}/>}/>

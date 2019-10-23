@@ -4,8 +4,8 @@ const API = 'http://localhost:52371/api/instruments/';
 
 //Fetch API for All Instruments
 export function loadInstruments(){
-    return(dispatch) => {
-        axios.get(`${API}/all`)
+    return async (dispatch) => {
+        await axios.get(`${API}/all`)
         .then()
         .then(resp => { 
             dispatch(getInstruments(resp.data));
