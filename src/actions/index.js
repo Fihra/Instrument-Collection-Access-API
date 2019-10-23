@@ -6,9 +6,11 @@ const API = 'http://localhost:52371/api/instruments/';
 export function loadInstruments(){
     return(dispatch) => {
         axios.get(`${API}/all`)
+        .then()
         .then(resp => { 
             dispatch(getInstruments(resp.data));
         })
+        //.catch(response => {return Promise.reject(response);}) 
     }
 }
 
