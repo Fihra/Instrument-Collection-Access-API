@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 
 class NewInstrumentForm extends React.Component {
     constructor(){
@@ -22,17 +21,6 @@ class NewInstrumentForm extends React.Component {
          e.preventDefault();
         
          this.props.newInstrument(this.state.name, this.state.origin, this.state.year, this.state.classification)
-        //  const API = 'http://localhost:52371/api/instruments/new';
-
-        //  axios.post(API, {
-        //      Name: this.state.name,
-        //      Origin: this.state.origin,
-        //      Year: this.state.year,
-        //      Classification: this.state.classification
-        //  })
-        //  .then(resp => {
-        //      console.log(resp.data)
-        //  })
     }
 
     //TODO: VALIDATIONS
@@ -56,12 +44,10 @@ class NewInstrumentForm extends React.Component {
                             <option value="electrophone">Electrophone</option>
                         </select>
                     </label>
-                    {/* <input type="text" name="classification" placeholder="classification" onChange={this.handleChange}></input> */}
                     <input type="submit" value="Submit"></input>
                     <input type="reset"></input>
                 </form>
             </div>
-
         )
     }
 }
