@@ -46,7 +46,7 @@ export function deleteInstrument(id, history){
         .then(resp => { 
             dispatch(deletingInstrument(id));
         })
-        history.push('/');
+        history.push('/instruments');
     })
 }
 

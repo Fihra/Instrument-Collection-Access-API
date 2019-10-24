@@ -9,7 +9,6 @@ const InstrumentCard = (props) => {
 
     const { Id, Name, Origin, Year } = filtered[0];
 
-
     const handleClick = (id) => {
         console.log(id);
         props.stageInstrument(id);

@@ -4,11 +4,12 @@ class NewInstrumentForm extends React.Component {
     constructor(){
         super();
         this.state = {
-            name: "name",
-            origin: "origin",
+            name: "",
+            origin: "",
             year: 0,
             classification: "chordophone",
-            message: ''
+            message: '',
+            errors: []
         }
     }
 
@@ -26,8 +27,17 @@ class NewInstrumentForm extends React.Component {
 
     handleSubmit = (e) => {
          e.preventDefault();
+
+         const { name, origin, year, classification } = this.state;
+
+         const errors = this.validate(name, origin, year);
+
+         if(errors.length > 0){
+             this.setState({ errors });
+             return;
+         }
         
-         this.props.newInstrument(this.state.name, this.state.origin, this.state.year, this.state.classification);
+         this.props.newInstrument(name, origin, year, classification);
 
          this.setState({
              message: 'Instrument Submitted'
@@ -39,8 +49,26 @@ class NewInstrumentForm extends React.Component {
         e.target.reset();
     }
 
+    validate = (name, origin, year) =>{
+        const errors = [];
+
+        if(name.length === 0){
+            errors.push("Name cannot be empty");
+        }
+        if(origin.length === 0){
+            errors.push("Origin cannot be empty");
+        }
+        console.log(year);
+        if(year > 2019){
+            errors.push("Year has to be a number and before " + 2019);
+        }
+        return errors;
+    }
+
     //TODO: VALIDATIONS
     render(){
+        const { errors } = this.state;
+
         return(
             <div className="main-container">
                 <h3>New Instrument Form</h3>
@@ -62,6 +90,9 @@ class NewInstrumentForm extends React.Component {
                     </label>
                     <input type="submit" value="Submit"></input>
                     <input type="reset"></input>
+                    {errors.map(error => (
+                        <p key={error}>Error: {error}</p>
+                    ))}
                     {this.state.message === ''? <div></div> : <div>{this.state.message}</div>}
                 </form>
             </div>
