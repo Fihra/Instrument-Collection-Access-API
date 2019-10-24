@@ -73,13 +73,14 @@ class NewInstrumentForm extends React.Component {
             <div className="main-container">
                 <h3>New Instrument Form</h3>
                 <form className="instrument-form" onSubmit={this.handleSubmit}>
-                    <label for="i-name">Instrument Name</label>
+                    {/* <label for="i-name">Instrument Name</label> */}
                     <input type="text" name="name" placeholder="name" onChange={this.handleChange}></input>
-                    <label for="i-origin">Origin</label>
+                    {'\n'}
+                    {/* <label for="i-origin">Origin</label> */}
                     <input type="text" name="origin" placeholder="origin" onChange={this.handleChange}></input>
-                    <label for="i-year">Year</label>
+                    {/* <label for="i-year">Year</label> */}
                     <input type="number" name="year" placeholder="year" onChange={this.handleChange}></input>
-                    <label for="i-class">Classification
+                    {/* <label for="i-class">Classification</label> */}
                         <select name="classification" value={this.state.classification} onChange={this.handleChange}>
                             <option value="chordophone">Chordophone</option>
                             <option value="aerophone">Aerophone</option>
@@ -87,9 +88,9 @@ class NewInstrumentForm extends React.Component {
                             <option value="membranophone">Membranophone</option>
                             <option value="electrophone">Electrophone</option>
                         </select>
-                    </label>
-                    <input type="submit" value="Submit"></input>
-                    <input type="reset"></input>
+                    
+                    <button type="submit" value="Submit">Submit</button>
+                    <button type="reset">Reset</button>
                     {errors.map(error => (
                         <p key={error}>Error: {error}</p>
                     ))}
